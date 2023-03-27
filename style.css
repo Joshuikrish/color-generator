@@ -52,3 +52,6 @@ span{
 .colored{
     cursor: pointer;
 }
+.gaps{
+    padding: 10px;
+}

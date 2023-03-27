@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-  <title>Color Generator</title>
+  <title>Image Search</title>
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -24,33 +24,37 @@
   <main id="app">
     <div class="container">
       <div class="row">
-        <div class="col-12 ">
-          <h1 class="text-center fw-bolder py-5">Color palette generator</h1>
-          <div v-if="showSuccessAlert" class="alert alert-success alert-d" role="alert">
-            <h4 class="alert-heading">{{message}}</h4>
-          </div>
-          <div class="colors d-flex ">
-            <div v-for="color in colors" class="colored" :id="color" @click="handleCopy(color)" class="col-2">
-              <div class="card p-2">
-                <div class="color" v-bind:style="{ backgroundColor: color }"></div>
-                <h6 class="text-center p-2 fw-bolder" id="name">{{ color }}</h6>
-              </div>
+        <div class="col-md-12">
+          <h1 class="text-center fw-bolder mt-5">Image Search</h1>
+          <form>
+            <div class="form-group">
+              <label for=""></label>
+              <input v-model="input" required v-on:keyup.enter="onEnter" type="text"
+              class="form-control w-100" name="" id="" aria-describedby="helpId" placeholder="">
+              <small id="helpId" class="form-text text-muted">Enter Image Name</small>
             </div>
+          </form>
+          <div class="gallery">
+            <div class="tz-gallery">
+              
+              <div class="row">
+                  
+        
+                    <div v-for="image in images" class="col-sm-12 col-md-4 gaps">
+                            <!-- <img src="https://raw.githubusercontent.com/LeshikJanz/libraries/master/Related%20images/Bootstrap%20example/bridge.jpg" alt="Bridge"> -->
+                            <img :src="image.urls.regular"  class="img-fluid ${3|rounded-top,rounded-right,rounded-bottom,rounded-left,rounded-circle,|}" alt="">
+                   
+                    </div>
+                   
+        
+               
+        
             </div>
 
-          
-
-          <div class=" my-xl-5 w-100  text-center">
-            <a name="" @click="calculate" id="" class=" p-lg-3 btn btn-pruple" href="#" role="button">Generate palette</a>
-          </div>
-          <p class="text-center  fw-bold">Or just press the "spacebar" to generate new palettes.</p>
-
-          <div class="text-center">
-
-            <div name="" id="" class=" text-center btn-white btn-white">
-              click to copy individual color
+              <!-- {{image.urls.raw}} -->
             </div>
           </div>
+        
         </div>
       </div>
     </div>
@@ -69,6 +73,8 @@
     </script>
   <!-- Vue js 3 -->
   <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
   <script src="./script.js"></script>
 
 </body>
